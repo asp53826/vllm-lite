@@ -1,0 +1,19 @@
+[project]
+name = "vllm-lite"
+version = "0.1.0"
+description = "LLM inference server with a paged KV cache and continuous batching"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26", "fastapi>=0.110", "uvicorn[standard]>=0.27", "pydantic>=2.5"]
+
+[project.scripts]
+vllm-lite = "vllmlite.api.server:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["vllmlite*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
